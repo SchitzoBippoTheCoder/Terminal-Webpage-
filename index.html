@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<script src="script.js"></script>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body id="background">
+    <div id="terminalLine">
+        <h1 id="commandLine">S:>>></h1>
+        <h1 id="placeholderLine">S:\\></h1>
+
+        <form onsubmit="EnterCommand(); return false;">
+            <input type="text" id="inputLine" value="help show">
+            <input type="button" id="enterCommand">
+        </form>
+
+    </div>
+
+    <h2 id="commandResponse"></h2>
+
+    <div id="helpMenu">
+        <div id="helpMenuHeader">
+            <p>Command Help ~ help [show/hide]</p>
+        </div>
+        <div id="helpContent">
+            <br>
+            <p>alert [String message] ~ Executes Javascript alert()</p>
+            <br>
+            <p>theme color [String color] ~ Changes theme color</p>
+            <br>
+            <p>open program [String program] ~ Opens a program in the terminal</p>
+            <br>
+            <p>close program [String program] ~ Close the program in the terminal</p>
+            <br>
+            <p>random number [int minNum] [int maxNum] ~ Chooses a random number between minNum and maxNum</p>
+            <br>
+            <p>add number [float a] [float b] ~ Adds a and b, returns a decimal</p>
+            <br>
+            <p>sub number [float a] [float b] ~ Subtracts a and b, returns a decimal</p>
+            <br>
+            <p>mul number [float a] [float b] ~ Multiplies a and b, returns a decimal</p>
+            <br>
+            <p>div number [float a] [float b] ~ Divides a and b, returns a decimal</p>
+            <br>
+        </div>
+    </div>
+
+    <div id="notepad">
+        <div id="notepadHeader">
+            <p>Notepad</p>
+        </div>
+
+        <div id="notepadSettings">
+            <input id="colorSelector" type="color">
+
+            <select name="font" id="fontSelect">
+                <option value="courier">Courier</option>
+                <option value="arial">Arial</option>
+                <option value="impact">Impact</option>
+                <option value="verdana">Verdana</option>
+            </select>
+
+            <input id="fontSize" type="number">
+
+            <input id="applyColor" type="button" value="Apply" onclick="ApplyStyle()">
+        </div>
+
+
+
+        <textarea id="notepadContent"></textarea>
+    </div>
+
+    <div id="clock">
+        <div id="clockHeader">
+            <p>Clock</p>
+        </div>
+
+        <div>
+            <center>
+                <div id="clockBorder"></div>
+            </center>
+            <div id="secondHand"></div>
+            <div id="minuteHand"></div>
+            <div id="hourHand"></div>
+        </div>
+
+    </div>
+
+    <button id="navbarOpen" onclick="NavBarButton()">...</button>
+
+    <div id="verticalNavbar">
+        <button id="navbarCloseButton" onclick="NavBarButtonClose()">X</button>
+        <p>Terminal Webpage ~ ICS4U1</p>
+        <p id="programButtonOptions">List of Programs</p>
+        <div id="programList">
+            <p>    ~ Notepad (notepad)</p>
+            <p>    ~ Clock (clock)</p>
+        </div>
+        <p id="updateLogButtonOptions">Latest Update</p>
+        <div id="updateLogList">
+            <p>>> Terminal including skeleton commands</p>
+        </div>
+    </div>
+
+    <h3 id="userInformation">[Public-Domain]</h3>
+
+    <!-- In the below script tag is the code for a draggable window. This code is not mine and belongs to W3Schools. The code must be attached here or else it will not work -->
+
+    <script>
+
+        document.getElementById("programButtonOptions").onclick = function () { showList() };
+        document.getElementById("updateLogButtonOptions").onclick = function () { showLog() };
+
+        var username = prompt("Enter a username");
+
+        document.getElementById("userInformation").innerHTML = "Username: " + username;
+
+        if (username != null) {
+            document.getElementById("commandLine").innerHTML = username.charAt(0) + ":>>";
+        }
+
+        else {
+            document.getElementById("commandLine").innerHTML = "S:>>";
+        }
+
+        function SetTimeClock() {
+            document.getElementById("secondHand").style.animationDelay = -(today.getSeconds()) - 2 + "s";
+            document.getElementById("minuteHand").style.animationDelay = -today.getMinutes() * 60 - 2 + "s";
+
+            var newHour = 0;
+
+            if (today.getHours() > 12) {
+                newHour = today.getHours() - 12;
+            }
+
+            else {
+                newHour = today.getHours();
+            }
+
+            document.getElementById("hourHand").style.animationDelay = -newHour * 60 * 60 - 2 + "s";
+        }
+
+        SetTimeClock();
+
+        dragElement(document.getElementById("notepad"));
+        dragElement(document.getElementById("helpMenu"));
+        dragElement(document.getElementById("clock"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            document.getElementById(elmnt.id + "Header").onmousedown = dragMouseDown;
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                // stop moving when mouse button is released:
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

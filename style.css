@@ -1,0 +1,488 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*background-image: url("assets/websiteBackground.gif"); background-size: cover;}*/
+
+#navbarOpen {
+    position: fixed;
+
+    border-color: green;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+
+    background-color: black;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    color: green;
+
+    height: 50px;
+    width: 50px;
+
+    top: 21px;
+    right: 80px;
+}
+
+#verticalNavbar{
+    position: fixed;
+    
+    background-color: green;
+
+    border-style: solid;
+
+    border-top: 5px solid darkgreen;
+    border-right: 5px solid darkgreen;
+
+    border-left: 5px solid darkgreen;
+    border-top-left-radius: 10px;
+
+    top:0px;
+    right: 0px;
+
+    height: 100vmax;
+    width: 25vmax;
+
+    display: none;
+}
+
+#navbarCloseButton{
+    position: relative;
+
+    top: 15px;
+    left: 10px;
+
+    height: 25px;
+    width: 25px;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: large;
+
+    color: black;
+
+    background-color: transparent;
+    
+    border-style: none;
+}
+
+#verticalNavbar p{
+    position: relative;
+
+    background-color: green;
+
+    top: 30px;
+    left: 0px;
+
+    width: 25vmax - 5px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+#verticalNavbar p[id="programButtonOptions"]:hover{
+    background-color: darkgreen;
+}
+
+#verticalNavbar p[id="updateLogButtonOptions"]:hover{
+    background-color: darkgreen;
+}
+
+#programList{
+    display: none;
+}
+
+#updateLogList{
+    display: none;
+}
+
+#commandLine {
+    position: fixed;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+
+    color: green;
+
+    background-color: #000000;
+
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+
+    padding-top: 10px;
+    padding-right: 1200px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+
+}
+
+#placeholderLine {
+    display: block;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+
+    color: black;
+
+    background-color: #000000;
+
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    padding-top: 10px;
+    padding-right: 1200px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+}
+
+#inputLine {
+    position: fixed;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: xx-large;
+    color: green;
+
+    border-color: transparent;
+    background-color: black;
+
+    height: 45px;
+    width: 700px;
+
+    margin-top: 3px;
+    margin-left: 10px;
+
+    top: 18px;
+    left: 105px;
+}
+
+#used {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+    color: green;
+
+    padding-left: 10px;
+}
+
+#commandResponse {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+    color: green;
+
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+#background {
+    background-color: black;
+}
+
+#helpMenu {
+    background-color: black;
+
+    position: absolute;
+
+    right: 10px;
+    bottom: 10px;
+
+    display: none;
+
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    border-color: green;
+
+    height: 300px;
+    width: 400px;
+}
+
+#helpMenuHeader {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: green;
+
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+
+    height: 15px;
+    width: 400px;
+
+    cursor: move;
+}
+
+#helpContent {
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+
+    overflow-y: auto;
+    height: 250px;
+
+    padding-left: 10px;
+}
+
+#helpContent::-webkit-scrollbar {
+    display: none;
+}
+
+#notepad {
+    background-color: black;
+
+    position: absolute;
+
+    display: none;
+
+    left: 10px;
+    bottom: 10px;
+
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    border-color: green;
+
+    height: 300px;
+    width: 400px;
+
+    z-index: 9;
+}
+
+#notepadHeader {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: green;
+
+    padding-top: 15px;
+    padding-left: 13px;
+
+    height: 15px;
+    width: 400px;
+
+    cursor: move;
+}
+
+#notepadSettings {
+
+    position: relative;
+
+    bottom: 32px;
+    left: 100px;
+
+    padding-top: 10px;
+}
+
+#colorSelector {
+    height: 23px;
+}
+
+#notepadContent {
+
+    margin-top: -20px;
+    margin-left: 10px;
+
+    font-family: 'Courier New';
+    color: black;
+
+    border-style: solid;
+    border-color: green;
+    border-radius: 5px;
+    border-width: 3px;
+
+    height: 240px;
+    width: 375px;
+}
+
+#notepadHeader p {
+    display: inline;
+}
+
+#clock {
+    background-color: black;
+
+    position: absolute;
+
+    display: none;
+
+    left: 10px;
+    bottom: 10px;
+
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    border-color: green;
+
+    height: 300px;
+    width: 400px;
+
+    z-index: 9;
+}
+
+#clockHeader {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: green;
+
+    padding-top: 15px;
+    padding-left: 13px;
+
+    height: 15px;
+    width: 400px;
+
+    cursor: move;
+}
+
+#clockHeader p {
+    display: inline;
+}
+
+#secondHand {
+
+    position: absolute;
+
+    top: 150px;
+    left: 200px;
+    height: 2px;
+    width: 70px;
+
+    border-style: solid;
+    border-width: 1px;
+
+    transform: rotate(180deg);
+
+    animation: rotate 60s infinite steps(60);
+
+    transform-origin: 0px;
+
+
+    background-color: green;
+
+    z-index: 1;
+}
+
+#minuteHand {
+
+    position: absolute;
+
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 3px;
+
+    top: 150px;
+    left: 200px;
+    height: 3px;
+    width: 90px;
+
+    animation: rotate 3600s infinite linear;
+
+    transform-origin: 0px;
+
+    background-color: green;
+
+    z-index: 2;
+}
+
+#hourHand {
+
+    position: absolute;
+
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 3px;
+
+    top: 150px;
+    left: 200px;
+    height: 4px;
+    width: 110px;
+
+    animation: rotate 43200s infinite linear;
+
+    transform-origin: 0px;
+
+    background-color: green;
+
+    z-index: 3;
+}
+
+#clockBorder {
+    border-style: solid;
+    border-color: green;
+    border-radius: 100px;
+
+    position: relative;
+
+    top: 45px;
+
+    transform-origin: center;
+
+    box-shadow: 0px 15px 25px rgb(0, 100, 0);
+
+    height: 150px;
+    width: 150px;
+
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotateZ(630deg);
+    }
+}
+
+#userInformation {
+
+    position: fixed;
+
+    bottom: 15px;
+
+    display: inline;
+
+    border-style: solid;
+    border-radius: 5px;
+    border-color: green;
+
+    margin-left: 10px;
+
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+}
+
+#fontSize {
+    width: 50px;
+}
+
+#colorSelector {
+
+    border-width: 3px;
+
+    margin-top: 4px;
+}
+
+#enterCommand {
+    display: none;
+}
