@@ -83,7 +83,15 @@ function EnterCommand() {
 
     const command = document.getElementById("inputLine").value;
 
-    if (command.startsWith("alert ")) {
+    if (command === "dev log"){
+        console.log("BETA COMMANDS - OPEN TO MODDING - USE WISELY \n\n - test type ~ Displays dummy text with typewriter effect");
+        
+        document.getElementById("inputLine").value = "";
+
+        document.getElementById("commandResponse").innerHTML = "[" + dateTime + "]" + " Hello dev boi! Check the console log - will be password protected soon";
+    }
+
+    else if (command.startsWith("alert ")) {
 
         const alertMessage = command.slice(6);
 
