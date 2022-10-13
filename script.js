@@ -6,6 +6,18 @@ var dateTime = date + ' ' + time;
 var programListSwitch = false;
 var updateLogSwitch = false;
 
+var asyncCheck = false;
+
+while (true){
+    if (asyncCheck){
+        document.getElementById("inputLine").style.display = "none";
+    }
+
+    else{
+        document.getElementById("inputLine").style.display = "inline";
+    }
+}
+
 function ApplyStyle() {
     const textColor = document.getElementById("colorSelector").value;
     const fontSelect = document.getElementById("fontSelect").value;
@@ -260,6 +272,11 @@ function EnterCommand() {
         document.getElementById("inputLine").value = "";
     }
 
+    else if (command === "test type"){
+        TypeWriterEffect("This is a test for the typewriter effect...");
+        document.getElementById("inputLine").value = "";
+    }
+
     else {
         const errorLine = document.getElementById("inputLine").value;
 
@@ -267,5 +284,27 @@ function EnterCommand() {
         document.getElementById("inputLine").value = "";
     }
 
-    document.getElementById("commandResponse").id = "used";
+    if (!asyncCheck)
+        document.getElementById("commandResponse").id = "used";
+}
+
+function sleep(ms) {
+    return new Promise(
+      resolve => setTimeout(resolve, ms)
+    );
+  }
+
+async function TypeWriterEffect(message){
+    asyncCheck = true;
+    document.getElementById("commandResponse").innerHTML += "[" + dateTime + "] ";
+
+    for (let i = 0; i < message.length; i ++){
+        
+        document.getElementById("commandResponse").innerHTML += message.charAt(i);
+        await sleep(75);
+    }
+
+    asyncCheck = false;
+
+
 }
