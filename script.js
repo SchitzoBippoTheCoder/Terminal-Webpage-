@@ -306,5 +306,5 @@ async function TypeWriterEffect(message){
 
     asyncCheck = false;
 
-
+    document.getElementById("commandResponse").id = "used";
 }
