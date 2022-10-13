@@ -111,12 +111,18 @@
 
     <script>
 
+        let userData = {
+            username: "defaultName",
+        };
+
         document.getElementById("programButtonOptions").onclick = function () { showList() };
         document.getElementById("updateLogButtonOptions").onclick = function () { showLog() };
 
         var username = prompt("Enter a username");
 
-        document.getElementById("userInformation").innerHTML = "Username: " + username;
+        userData["username"] = username;
+        
+        document.getElementById("userInformation").innerHTML = "Username: " + userData["username"];
 
         if (username != null) {
             document.getElementById("commandLine").innerHTML = username.charAt(0) + ":>>";
