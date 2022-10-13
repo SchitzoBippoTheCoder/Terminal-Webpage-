@@ -6,6 +6,10 @@ var dateTime = date + ' ' + time;
 var programListSwitch = false;
 var updateLogSwitch = false;
 
+let userData = {
+    username: "defaultName",
+};
+
 function ApplyStyle() {
     const textColor = document.getElementById("colorSelector").value;
     const fontSelect = document.getElementById("fontSelect").value;
