@@ -29,7 +29,7 @@
 #verticalNavbar{
     position: fixed;
     
-    background-color: green;
+    background-color: darkgreen;
 
     border-style: solid;
 
@@ -43,7 +43,7 @@
     right: 0px;
 
     height: 100vmax;
-    width: 25vmax;
+    width: 35vmax;
 
     display: none;
 }
@@ -71,7 +71,7 @@
 #verticalNavbar p{
     position: relative;
 
-    background-color: green;
+    background-color: darkgreen;
 
     top: 30px;
     left: 0px;
@@ -88,11 +88,11 @@
 }
 
 #verticalNavbar p[id="programButtonOptions"]:hover{
-    background-color: darkgreen;
+    background-color: green;
 }
 
 #verticalNavbar p[id="updateLogButtonOptions"]:hover{
-    background-color: darkgreen;
+    background-color: green;
 }
 
 #programList{
