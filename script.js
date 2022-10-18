@@ -8,12 +8,12 @@ var updateLogSwitch = false;
 
 var asyncCheck = false;
 
-while (true){
-    if (asyncCheck){
+while (true) {
+    if (asyncCheck) {
         document.getElementById("inputLine").style.display = "none";
     }
 
-    else{
+    else {
         document.getElementById("inputLine").style.display = "inline";
     }
 }
@@ -28,36 +28,36 @@ function ApplyStyle() {
     document.getElementById("notepadContent").style.fontSize = fontSize + "pt";
 }
 
-function NavBarButton(){
+function NavBarButton() {
     document.getElementById("verticalNavbar").style.display = "block";
 }
 
-function NavBarButtonClose(){
+function NavBarButtonClose() {
     document.getElementById("verticalNavbar").style.display = "none"
 }
 
-function showList(){
+function showList() {
 
     programListSwitch = !programListSwitch;
 
-    if (programListSwitch === true){
+    if (programListSwitch === true) {
         document.getElementById("programList").style.display = "block";
     }
 
-    else if (programListSwitch === false){
+    else if (programListSwitch === false) {
         document.getElementById("programList").style.display = "none";
     }
 }
 
-function showLog(){
+function showLog() {
 
     updateLogSwitch = !updateLogSwitch;
 
-    if (updateLogSwitch === true){
+    if (updateLogSwitch === true) {
         document.getElementById("updateLogList").style.display = "block";
     }
 
-    else if (updateLogSwitch === false){
+    else if (updateLogSwitch === false) {
         document.getElementById("updateLogList").style.display = "none";
     }
 }
@@ -83,12 +83,22 @@ function EnterCommand() {
 
     const command = document.getElementById("inputLine").value;
 
-    if (command === "dev log"){
-        console.log("BETA COMMANDS - OPEN TO MODDING - USE WISELY \n\n - test type ~ Displays dummy text with typewriter effect");
-        
-        document.getElementById("inputLine").value = "";
+    if (command.startsWith("dev log ")) {
+        var password = command.slice(8);
 
-        document.getElementById("commandResponse").innerHTML = "[" + dateTime + "]" + " Hello dev boi! Check the console log - will be password protected soon";
+        if (password === "la1yI4uydK8rKKUQUF%#vizVJikocHXe2od%TuUq#") {
+            console.log("BETA COMMANDS - OPEN TO MODDING - USE WISELY \n\n - test type ~ Displays dummy text with typewriter effect");
+
+            document.getElementById("inputLine").value = "";
+
+            document.getElementById("commandResponse").innerHTML = "[" + dateTime + "]" + " Hello dev boi! Check the console log - will be password protected soon";
+        }
+
+        else{
+            document.getElementById("inputLine").value = "";
+
+            document.getElementById("commandResponse").innerHTML = "[" + dateTime + "]" + " ERROR >> Unable to read 'dev log'";
+        }
     }
 
     else if (command.startsWith("alert ")) {
@@ -118,7 +128,7 @@ function EnterCommand() {
         var minNumInt = parseInt(minNum);
         var maxNumInt = parseInt(maxNum);
 
-        var randomNumber = Math.floor(Math.random() * (maxNumInt - minNumInt + 1) ) + minNumInt;
+        var randomNumber = Math.floor(Math.random() * (maxNumInt - minNumInt + 1)) + minNumInt;
 
         document.getElementById("inputLine").value = "";
 
@@ -236,7 +246,7 @@ function EnterCommand() {
         document.getElementById("inputLine").style.color = color;
 
         //document.getElementById("used").style.color = color;
-        
+
         document.getElementById("commandResponse").style.color = color;
         document.getElementById("helpMenu").style.borderColor = color;
         document.getElementById("helpMenuHeader").style.color = color;
@@ -246,7 +256,7 @@ function EnterCommand() {
         document.getElementById("notepadContent").style.borderColor = color;
         document.getElementById("userInformation").style.color = color;
         document.getElementById("userInformation").style.borderColor = color;
-        
+
     }
 
     else if (command.startsWith("open program ")) {
@@ -280,7 +290,7 @@ function EnterCommand() {
         document.getElementById("inputLine").value = "";
     }
 
-    else if (command === "test type"){
+    else if (command === "test type") {
         TypeWriterEffect("This is a test for the typewriter effect...");
         document.getElementById("inputLine").value = "";
     }
@@ -298,16 +308,16 @@ function EnterCommand() {
 
 function sleep(ms) {
     return new Promise(
-      resolve => setTimeout(resolve, ms)
+        resolve => setTimeout(resolve, ms)
     );
-  }
+}
 
-async function TypeWriterEffect(message){
+async function TypeWriterEffect(message) {
     asyncCheck = true;
     document.getElementById("commandResponse").innerHTML += "[" + dateTime + "] ";
 
-    for (let i = 0; i < message.length; i ++){
-        
+    for (let i = 0; i < message.length; i++) {
+
         document.getElementById("commandResponse").innerHTML += message.charAt(i);
         await sleep(75);
     }
