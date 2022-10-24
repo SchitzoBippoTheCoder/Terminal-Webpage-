@@ -86,7 +86,7 @@ function EnterCommand() {
     if (command.startsWith("dev log ")) {
         var password = command.slice(8);
 
-        if (password === "la1yI4uydK8rKKUQUF%#vizVJikocHXe2od%TuUq#") {
+        if (password === "la1yI4uydK8rKKUQUF%#") {
             console.log("BETA COMMANDS - OPEN TO MODDING - USE WISELY \n\n - test type ~ Displays dummy text with typewriter effect");
 
             document.getElementById("inputLine").value = "";
